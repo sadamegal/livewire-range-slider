@@ -1,0 +1,34 @@
+{
+    "name": "sadam/livewire-range-slider",
+    "description": "this is simple blade range slider component for livewire",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sadam\\LivewireRangeSlider\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sadam\\LivewireRangeSlider\\LivewireRangeSliderServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "npm install --prefix src"
+        ],
+        "post-update-cmd": [
+            "npm install --prefix src"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Sadam A",
+            "email": "abdirizaksadam@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
