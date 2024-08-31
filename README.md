@@ -60,6 +60,35 @@ public $values = [30, 50,90]; // For three handles
 ## Optimization for wire:model.live
 The slider is optimized to work with wire:model.live if you prefer. This means that server requests will only be sent after the user has finished dragging the handle, reducing the number of requests and improving performance.
 
+## Styling
+You can customize the appearance of the slider using CSS. Here's an example of how you can style it:
+```bash
+.noUi-target {
+    background-color: #8BC34A;
+    height: 12px;
+    border-radius: 6px;
+}
+
+.noUi-handle {
+    background-color: #212121;
+    border: 2px solid #FFEB3B;
+}
+
+.noUi-connect {
+    background-color: #FFEB3B;
+}
+
+.noUi-tooltip {
+    background-color: #212121;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+```
+
 ## License
 
 This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
