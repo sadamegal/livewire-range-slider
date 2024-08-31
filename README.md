@@ -42,7 +42,7 @@ After following the installation steps, you can start using the range slider in 
   <x-range-slider :min="0" :max="100" :step="1" wire:model="values" />
 ```
 
-##Important Note
+## Important Note
 Make sure you have a $values array property in your Livewire component. This array should have at least one element, but you can include as many elements as you need for multiple slider handles. For example:
 
 ```bash
@@ -56,7 +56,7 @@ public $values = [30, 70]; // For two handles
 
 public $values = [30, 50,90]; // For three handles
 ```
-##Optimization for wire:model.live
+## Optimization for wire:model.live
 The slider is optimized to work with wire:model.live if you prefer. This means that server requests will only be sent after the user has finished dragging the handle, reducing the number of requests and improving performance.
 
 This package is open-sourced software licensed under the MIT license.
