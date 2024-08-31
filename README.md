@@ -59,4 +59,7 @@ public $values = [30, 50,90]; // For three handles
 ## Optimization for wire:model.live
 The slider is optimized to work with wire:model.live if you prefer. This means that server requests will only be sent after the user has finished dragging the handle, reducing the number of requests and improving performance.
 
-This package is open-sourced software licensed under the MIT license.
+## License
+
+This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
