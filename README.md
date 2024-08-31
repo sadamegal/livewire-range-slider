@@ -1,6 +1,6 @@
-# Livewire Range Slider
+# Livewire 3 Range Slider
 
-This package provides a simple and convenient range slider component for Laravel Livewire applications, utilizing noUiSlider for a smooth and responsive user experience.
+This package provides a simple and convenient range slider component for Laravel Livewire 3 applications, utilizing noUiSlider for a smooth and responsive user experience.
 
 
 ## Installation
