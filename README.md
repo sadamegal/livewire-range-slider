@@ -33,9 +33,10 @@ Once you've made the necessary updates to app.js, be sure to compile your assets
 
 ```bash
 npm run dev
+npm run build
 ```
 
-Usage
+## Usage
 After following the installation steps, you can start using the range slider in your Livewire components. Simply include the provided Blade component in your views:
 
 ```bash
