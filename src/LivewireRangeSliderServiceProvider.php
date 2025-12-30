@@ -3,55 +3,43 @@
 namespace Sadam\LivewireRangeSlider;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\Support\Facades\Blade;
+use Sadam\LivewireRangeSlider\View\Components\RangeSlider;
 
 class LivewireRangeSliderServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
-    public function boot()
+    public function register(): void
     {
-        // Load views from the package's resources directory
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'livewire-range-slider');
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/livewire-range-slider.php',
+            'livewire-range-slider'
+        );
+    }
 
-        // Register components after loading views
-        $this->configureComponents();
+    public function boot(): void
+    {
+        $this->loadViewsFrom(
+            __DIR__.'/../resources/views',
+            'livewire-range-slider'
+        );
 
-        // Publish bundled assets
+        Blade::component('range-slider', RangeSlider::class);
+
         $this->publishes([
-            __DIR__.'/../public' => public_path('vendor/livewire-range-slider'),
-        ], 'public');
-         // Publishing the views
-    $this->publishes([
-        __DIR__.'/resources/views' => resource_path('views/vendor/livewire-range-slider'),
-    ], 'views');
-    }
+            __DIR__.'/../resources/dist/nouislider.min.js' =>
+                public_path('vendor/livewire-range-slider/nouislider.min.js'),
 
-    /**
-     * Register the component.
-     */
-    protected function configureComponents()
-    {
-        $this->callAfterResolving(BladeCompiler::class, function () {
-            $this->registerComponent('range-slider');
-        });
-    }
+            __DIR__.'/../resources/dist/nouislider.min.css' =>
+                public_path('vendor/livewire-range-slider/nouislider.min.css'),
 
-    /**
-     * Register a specific Blade component.
-     */
-    protected function registerComponent(string $component)
-    {
-        Blade::component($component, \Sadam\LivewireRangeSlider\View\Components\RangeSlider::class);
-    }
+            __DIR__.'/../resources/css/range-slider.css' =>
+                public_path('vendor/livewire-range-slider/range-slider.css'),
+        ], 'livewire-range-slider-assets');
 
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
-        //
+        $this->publishes([
+            __DIR__.'/../config/livewire-range-slider.php' =>
+                config_path('livewire-range-slider.php'),
+        ], 'livewire-range-slider-config');
+
     }
 }
