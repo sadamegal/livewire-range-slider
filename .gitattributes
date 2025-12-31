@@ -1,3 +1,5 @@
 
 # Ignore compiled/minified JS/CSS in dist if present
 /resources/dist/** linguist-vendored
+/resources/css/** linguist-vendored
+
