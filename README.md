@@ -1,5 +1,7 @@
 # Livewire Range Slider
 
+![Demo of Livewire Range Slider](demo.png)
+
 [![Latest Version](https://img.shields.io/packagist/v/sadam/livewire-range-slider)](https://packagist.org/packages/sadam/livewire-range-slider) [![License](https://img.shields.io/packagist/l/sadam/livewire-range-slider)](https://github.com/sadamegal/livewire-range-slider/blob/main/LICENSE.md) [![Total Downloads](https://img.shields.io/packagist/dt/sadam/livewire-range-slider)](https://packagist.org/packages/sadam/livewire-range-slider)
 
 
