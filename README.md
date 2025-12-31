@@ -1,6 +1,6 @@
 # Livewire Range Slider
 
-[![Latest Version](https://img.shields.io/packagist/v/sadam/livewire-range-slider)](https://packagist.org/packages/sadam/livewire-range-slider) [![License](https://img.shields.io/packagist/l/sadam/livewire-range-slider)](https://github.com/sadamegal/livewire-range-slider/blob/main/LICENSE) [![Total Downloads](https://img.shields.io/packagist/dt/sadam/livewire-range-slider)](https://packagist.org/packages/sadam/livewire-range-slider)
+[![Latest Version](https://img.shields.io/packagist/v/sadam/livewire-range-slider)](https://packagist.org/packages/sadam/livewire-range-slider) [![License](https://img.shields.io/packagist/l/sadam/livewire-range-slider)](https://github.com/sadamegal/livewire-range-slider/blob/main/LICENSE.md) [![Total Downloads](https://img.shields.io/packagist/dt/sadam/livewire-range-slider)](https://packagist.org/packages/sadam/livewire-range-slider)
 
 
 A feature-rich, customizable range slider component for Laravel Livewire applications, built on noUiSlider with Alpine.js integration.
