@@ -9,7 +9,7 @@ A feature-rich, customizable range slider component for Laravel Livewire applica
 
 > **v1.0.0 - First Stable Release!** This package is now production-ready with comprehensive features and proper asset management.
 
-> **Upgrading from dev-main?** This release includes significant improvements and breaking changes. Please read the [Migration Guide](#migration-guide) before updating.
+> **Upgrading from v0.10?** This release includes significant improvements and breaking changes. Please read the [Migration Guide](#migration-guide) before updating.
 
 ## Table of Contents
 
@@ -58,7 +58,7 @@ php artisan vendor:publish --tag=livewire-range-slider-config
 
 ## What's New
 
-This version introduces major improvements over the previous dev-main release:
+This version introduces major improvements over the previous v0.10 release:
 
 - **Simplified Installation**: No npm dependencies required - noUiSlider is now bundled
 - **Flexible Wire Models**: Bind to single values or arrays (previously arrays only)
@@ -298,9 +298,9 @@ Supports all modern browsers that support Alpine.js and noUiSlider.
 
 ## Migration Guide
 
-### Upgrading from Previous Version (dev-main)
+### Upgrading from Previous Version (v0.10)
 
-This guide will help you migrate from the previous dev-main version to the current release.
+This guide will help you migrate from the previous v0.10 version to the current release.
 
 #### Overview of Changes
 
