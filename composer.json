@@ -1,6 +1,6 @@
 {
     "name": "sadam/livewire-range-slider",
-    "description": "A simple, Alpine-powered range slider component for Laravel Livewire",
+    "description": "A feature-rich, customizable range slider component for Laravel Livewire applications, built on noUiSlider with Alpine.js integration",
     "keywords": [
         "laravel",
         "livewire",
