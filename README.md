@@ -40,6 +40,7 @@ Publish the assets:
 ```bash
 php artisan vendor:publish --tag=livewire-range-slider-assets
 ```
+> ****⚠️ Note: The package won’t work properly without publishing these assets.****
 
 Optionally, publish the configuration file:
 
