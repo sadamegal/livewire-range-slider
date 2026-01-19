@@ -7,7 +7,7 @@
 
 A feature-rich, customizable range slider component for Laravel Livewire applications, built on noUiSlider with Alpine.js integration.
 
-> **v1.0.0 - First Stable Release!** This package is now production-ready with comprehensive features and proper asset management.
+> **v1.1.0** - Added Livewire 4 compatibility, updated metadata and documentation. No breaking changes.
 
 > **Upgrading from v0.10?** This release includes significant improvements and breaking changes. Please read the [Migration Guide](#migration-guide) before updating.
 
