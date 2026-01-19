@@ -11,6 +11,8 @@ A feature-rich, customizable range slider component for Laravel Livewire applica
 
 > **Upgrading from v0.10?** This release includes significant improvements and breaking changes. Please read the [Migration Guide](#migration-guide) before updating.
 
+> Compatibility: Supports Livewire v3 and v4.
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -54,7 +56,7 @@ php artisan vendor:publish --tag=livewire-range-slider-config
 
 - PHP 8.1 or higher
 - Laravel 10.x, 11.x, or 12.x
-- Livewire 3.x
+- Livewire 3.x or 4.x
 
 ## What's New
 
