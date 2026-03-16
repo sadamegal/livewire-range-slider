@@ -26,6 +26,14 @@
 
     "type": "library",
     "license": "MIT",
+     "authors": [
+        {
+            "name": "Sadam Abdulahi",
+            "email": "contact@sadam.ca",
+            "homepage": "https://sadam.ca",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "illuminate/support": "^10.0|^11.0|^12",
