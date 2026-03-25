@@ -76,10 +76,10 @@ This version introduces major improvements over the previous v0.10 release:
 ### Single Value Slider
 
 ```blade
-<x-range-slider 
-    wire:model.live="price" 
-    :min="0" 
-    :max="1000" 
+<x-range-slider
+    wire:model.live="price"
+    :min="0"
+    :max="1000"
     :step="10"
 />
 ```
@@ -96,9 +96,9 @@ class PriceFilter extends Component
 ### Range Slider (Multiple Handles)
 
 ```blade
-<x-range-slider 
-    wire:model="priceRange" 
-    :min="0" 
+<x-range-slider
+    wire:model="priceRange"
+    :min="0"
     :max="1000"
 />
 ```
@@ -107,7 +107,7 @@ class PriceFilter extends Component
 class PriceFilter extends Component
 {
     public $priceRange = [200, 800];
-    
+
     // You can also use 3+ handles
     // public $quartiles = [100, 300, 600, 900];
 }
@@ -120,6 +120,7 @@ class PriceFilter extends Component
 | `min` | int/float | 1 | Minimum value |
 | `max` | int/float | 100 | Maximum value |
 | `step` | float | 1 | Step increment |
+| `values` | array | null | Selectable values |
 | `tooltips` | bool | true | Show value tooltips |
 | `pips` | bool/array | false | Show scale markers |
 | `theme` | string | 'indigo' | Color theme |
@@ -184,6 +185,14 @@ See [noUiSlider documentation](https://refreshless.com/nouislider/behaviour-opti
 <x-range-slider wire:model="value" behaviour="snap" />
 ```
 
+### Values
+
+Set specific selectable range values
+
+```blade
+<x-range-slider wire:model="value" :values=[10, 50, 75, 100] />
+```
+
 ## Wire Model Modifiers
 
 ### Live Updates
@@ -216,7 +225,7 @@ Update when form is submitted (default):
 
 ```blade
 <div>
-    <x-range-slider 
+    <x-range-slider
         wire:model.live="priceRange"
         :min="0"
         :max="5000"
@@ -226,7 +235,7 @@ Update when form is submitted (default):
         :pips="[0, 1000, 2500, 5000]"
         :tooltips="true"
     />
-    
+
     <p>Price: ${{ $priceRange[0] }} - ${{ $priceRange[1] }}</p>
 </div>
 ```
@@ -234,7 +243,7 @@ Update when form is submitted (default):
 ### Volume Control
 
 ```blade
-<x-range-slider 
+<x-range-slider
     wire:model="volume"
     :min="0"
     :max="100"
@@ -248,7 +257,7 @@ Update when form is submitted (default):
 ### Age Range Selector
 
 ```blade
-<x-range-slider 
+<x-range-slider
     wire:model="ageRange"
     :min="18"
     :max="100"
@@ -398,10 +407,10 @@ public $priceRange = [30, 70];
 ```
 
 ```blade
-<x-range-slider 
+<x-range-slider
     wire:model="priceRange"
-    :min="0" 
-    :max="100" 
+    :min="0"
+    :max="100"
     :step="1"
     theme="indigo"
     :tooltips="true"
@@ -522,10 +531,10 @@ public $priceRange = [200, 800];
 ```
 
 ```blade
-<x-range-slider 
+<x-range-slider
     wire:model.live="priceRange"
-    :min="0" 
-    :max="1000" 
+    :min="0"
+    :max="1000"
     :step="10"
     theme="emerald"
     size="medium"

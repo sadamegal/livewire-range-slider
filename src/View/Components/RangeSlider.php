@@ -18,6 +18,7 @@ class RangeSlider extends Component
     public string $variant;
     public string $direction;
     public string $behaviour;
+    public ?array $values;
 
     public function __construct(
         float|int $min = null,
@@ -29,7 +30,8 @@ class RangeSlider extends Component
         string $size = null,
         string $variant = null,
         string $direction = null,
-        string $behaviour = null
+        string $behaviour = null,
+        ?array $values = null
     ) {
         $this->min = $min ?? config('livewire-range-slider.min', 1);
         $this->max = $max ?? config('livewire-range-slider.max', 100);
@@ -40,7 +42,8 @@ class RangeSlider extends Component
         $this->size = $this->validateSize($size ?? config('livewire-range-slider.size', 'medium'));
         $this->variant = $this->validateVariant($variant ?? config('livewire-range-slider.variant', 'square'));
         $this->direction = $this->validateDirection($direction ?? config('livewire-range-slider.direction', 'ltr'));
-        $this->behaviour =$this->validateBehaviour($behaviour ?? config('livewire-range-slider.behaviour','tap'));
+        $this->behaviour = $this->validateBehaviour($behaviour ?? config('livewire-range-slider.behaviour', 'tap'));
+        $this->values = $this->normalizeAllowedValues($values);
     }
 
     protected function normalizePips(bool|array $pips): bool|array
@@ -89,8 +92,8 @@ class RangeSlider extends Component
                 "unconstrained",
                 "invert-connects",
                 "none",
-               // "unconstrained-invert-connects"
-                ];
+                // "unconstrained-invert-connects"
+            ];
         return in_array($behaviour, $validBehaviours, true) ? $behaviour : 'invert-connects';
     }
 
@@ -99,6 +102,13 @@ class RangeSlider extends Component
         // Only allow alphanumeric, hyphens, and underscores
         $sanitized = preg_replace('/[^a-zA-Z0-9\-_]/', '', $value);
         return $sanitized !== '' ? $sanitized : 'default';
+    }
+
+    protected function normalizeAllowedValues(?array $values): ?array
+    {
+        if ($values === null) return null;
+        $filtered = array_values(array_filter($values, fn($v) => is_numeric($v)));
+        return empty($filtered) ? null : array_map('floatval', $filtered);
     }
 
     public function render(): View|Closure|string
