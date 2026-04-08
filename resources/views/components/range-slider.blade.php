@@ -9,6 +9,7 @@
     'variant',
     'direction',
     'behaviour',
+    'values',
 ])
 
 @php
@@ -26,13 +27,14 @@
     x-data="rangeSlider({
         property: @js($wireProperty),
         modifier: @js($wireModifier),
-        min: {{ $min }},
-        max: {{ $max }},
+        min: {{ $values ? min($values) : $min }},
+        max: {{ $values ? max($values) : $max }},
         step: {{ $step }},
         tooltips: {{ $tooltips ? 'true' : 'false' }},
         pips: @js($pips),
         direction: @js($direction),
         behaviour: @js($behaviour),
+        values: @js($values),
     })"
     class="range-slider range-slider-{{ $theme }} range-slider-{{ $size }} range-slider-{{ $variant }}"
     {{ $attributes->except(['wire:model', 'wire:model.live', 'wire:model.blur']) }}
@@ -80,7 +82,16 @@
                     behaviour: config.behaviour,  // ← Fixed spelling
                     connect: isRange ? true : [true, false],
                     step: config.step,
-                    range: { min: config.min, max: config.max },
+                    range: config.values
+                        ? Object.fromEntries(
+                            config.values.map((v, i) => {
+                                const pct = ((v - config.min) / (config.max - config.min)) * 100;
+                                const key = i === 0 ? 'min' : i === config.values.length - 1 ? 'max' : `${pct}%`;
+                                return [key, v];
+                            })
+                        )
+                        : { min: config.min, max: config.max },
+                    snap: !!config.values,
                     tooltips: config.tooltips,
                     pips: this.getPipsConfig(config.pips),
                     direction: config.direction,
@@ -126,6 +137,15 @@
             }
         },
 
+        snapToAllowed(numericValue) {
+            if (!config.values || !Array.isArray(config.values)) {
+                return numericValue;
+            }
+            return config.values.reduce((prev, curr) =>
+                Math.abs(curr - numericValue) < Math.abs(prev - numericValue) ? curr : prev
+            );
+        },
+
         setupLivewireUpdates(modifier) {
             if (modifier === 'live') {
                 // Update immediately on drag end
@@ -166,8 +186,8 @@
             if (this.isUpdatingFromWire) return;
 
             const numericValues = Array.isArray(values)
-                ? values.map(v => parseFloat(v))
-                : [parseFloat(values)];
+                ? values.map(v => this.snapToAllowed(parseFloat(v)))
+                : [this.snapToAllowed(parseFloat(values))];
 
             const result = numericValues.length === 1 ? numericValues[0] : numericValues;
 
