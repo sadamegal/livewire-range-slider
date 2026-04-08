@@ -55,7 +55,7 @@ php artisan vendor:publish --tag=livewire-range-slider-config
 ## Requirements
 
 - PHP 8.1 or higher
-- Laravel 10.x, 11.x, or 12.x
+- Laravel 10.x, 11.x, 12.x or 13.x
 - Livewire 3.x or 4.x
 
 ## What's New
@@ -190,7 +190,7 @@ See [noUiSlider documentation](https://refreshless.com/nouislider/behaviour-opti
 Set specific selectable range values
 
 ```blade
-<x-range-slider wire:model="value" :values=[10, 50, 75, 100] />
+<x-range-slider wire:model="value" :values="[10, 50, 75, 100]" />
 ```
 
 ## Wire Model Modifiers

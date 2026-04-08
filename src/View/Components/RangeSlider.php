@@ -108,9 +108,11 @@ class RangeSlider extends Component
     {
         if ($values === null) return null;
         $filtered = array_values(array_filter($values, fn($v) => is_numeric($v)));
-        return empty($filtered) ? null : array_map('floatval', $filtered);
+        if (empty($filtered)) return null;
+        $mapped = array_map('floatval', $filtered);
+        sort($mapped);
+        return $mapped;
     }
-
     public function render(): View|Closure|string
     {
         return view('livewire-range-slider::components.range-slider');
